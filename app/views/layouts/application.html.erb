@@ -14,16 +14,9 @@
 
   <body>
   <nav class="navbar navbar-expand navbar-light bg-light">
-  <div class="container-fluid">
+  <div class="container">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <%
-=begin%>
- <li class="nav-item">
-            <%= link_to current_user.name.capitalize, "#", class: "nav-link" %>
-          </li> 
-<%
-=end%>
           <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete %>
           </li>
