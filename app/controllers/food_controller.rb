@@ -1,5 +1,6 @@
 class FoodController < ApplicationController
   def index
+    @foods = current_user.foods
   end
 
   def new
@@ -16,6 +17,13 @@ class FoodController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy!
+    flash[:success] = 'Food deleted'
+    redirect_to food_index_path
   end
 
   def food_params

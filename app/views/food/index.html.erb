@@ -1,1 +1,28 @@
-<p>Food List</p>
+<div class="flex mx-5">
+  <h3 class="card-title">List of foods</h3>
+</div>
+
+<div class="border-black flex flex-col w-full">
+  <table border>
+    <tr>
+      <th>Food</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Action</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td>
+          <%= button_to 'Delete',
+            food_path(food),
+            method: :delete,
+            data: {confirm: 'Are sure you want to delete this food'}
+          %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
