@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "partials/navbar" %>
+    <% flash.each do |name, msg| %>
+      <p class="card-title"> <%= msg %> </p>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
