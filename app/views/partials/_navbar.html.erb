@@ -1,16 +1,52 @@
-<nav>
-  <ul class="flex items-center justify-center no-list card-title">
-    <li>
-      <a class="mx-5"><%= link_to "Home", food_index_path %></a></li>
-    <li>
-    <li>
-      <a class="mx-5"><%= link_to "Create Account", new_food_path %></a></li>
-    <li>
-    <li>
-      <a class="mx-5"><%= link_to "Add Food", new_food_path %></a></li>
-    <li>
-    <li>
-      <a class="mx-5"><%= link_to "Recipe" %></a>
-    </li>
-  </ul>
-</nav>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      
+            <% if user_signed_in? %>
+            <div class="navbar w-100 order-1 order-md-0  px-5">
+          <ul class="navbar-nav">
+                                  <li class="nav-item">
+                            <%= link_to "My Food", food_index_path,class: "nav-link mr-5" %>
+                          </li>
+
+                          <li class="nav-item">
+                          <%= link_to "Add Food", new_food_path,class: "nav-link mr-5" %>
+                          </li>
+
+                           <li class="nav-item">
+                            <%=  link_to "My Recipes", recipes_path, class: "nav-link  mr-5" %>
+                          </li>
+
+                          <li class="nav-item">
+                            <%= link_to "Add Recipe", new_food_path,class: "nav-link  mr-5" %>
+                          </li>
+                          
+                         
+                      </ul>
+            </div>
+                <div class="navbar w-100 order-3 justify-content-end">
+                  <ul class="navbar-nav   mx-4" >
+                      <li class="nav-item">
+                        <%= link_to "Log out", destroy_user_session_path, class: "nav-link  mr-5", method: :delete %>
+                      </li>
+                   </ul>
+               </div>
+        
+              
+             
+            <% else %>
+            <div class="navbar w-100 order-3 justify-content-end">
+                  <ul class="navbar-nav mr-5" >
+              
+                      <li class="nav-item">
+                        <%= link_to "Log in", new_user_session_path, class: "nav-link  mr-5" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "Sign up", new_user_registration_path, class: "nav-link  mr-5" %>
+
+                      </li>
+
+                      </ul>
+              </div>
+            <% end %>
+                
+       
+    </nav>
