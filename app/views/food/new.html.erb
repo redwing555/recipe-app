@@ -1,0 +1,23 @@
+<div>
+  <div class="flex mx-5">
+    <h3 class="card-title">Create new food</h3>
+  </div>
+
+  <%= form_with  class: 'form border-black flex flex-col w-full',
+    model: @food,
+    url: food_index_path(@current_user) do |form| %>
+    <div>
+      <p class="text-lg">Name:</p>
+      <%= form.text_field :name, class: 'form-inputs w-full' %>
+    </div>
+    <div>
+      <p class="text-lg">Measurement Unit:</p>
+      <%= form.text_field :measurement_unit, class: 'form-inputs w-full' %>
+    </div>
+    <div>
+      <p class="text-lg">Price:</p>
+      <%= form.number_field :price, class: 'form-inputs w-full' %>
+    </div>
+    <%= form.submit "Create Food", class: 'button my-5' %>
+  <% end %>
+</div>
