@@ -7,6 +7,7 @@ ruby "3.0.3"
 gem 'cancancan'
 # Add devise
 gem 'devise'
+gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"

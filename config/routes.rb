@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
 
+  devise_for :users
   resources :food, only: [:index, :new, :create, :destroy]
 
   # Defines the root path route ("/")
-  root "food#index"
+#   root "food#index"
+
+  root "user#index"
 end

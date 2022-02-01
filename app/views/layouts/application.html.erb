@@ -3,6 +3,8 @@
   <head>
     <title>RecipeApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,12 +14,27 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render partial: "partials/navbar" %>
-      <% flash.each do |name, msg| %>
-        <p class="card-title"><%= msg %></p>
-      <% end %>
-      <%= yield %>
-    </div>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= render partial: "partials/navbar" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
   </body>
 </html>
