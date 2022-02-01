@@ -8,7 +8,7 @@ class FoodController < ApplicationController
   end
 
   def create
-    @food = Food.new(food_params, user_id: current_user)
+    @food = current_user.foods.new(food_params)
 
     if @food.save
       flash[:notice] = "New Food created"
@@ -19,6 +19,6 @@ class FoodController < ApplicationController
   end
 
   def food_params
-    params.permit(:name, :measurement_unit, :price)
+    params.require(:food).permit(:name, :measurement_unit, :price)
   end
 end

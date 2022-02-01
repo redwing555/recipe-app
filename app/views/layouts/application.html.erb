@@ -11,12 +11,11 @@
   </head>
 
   <body>
-    <%= render partial: "partials/navbar" %>
-    <% flash.each do |name, msg| %>
-      <p class="card-title"> <%= msg %> </p>
-    <% end %>
-
     <div class="container">
+      <%= render partial: "partials/navbar" %>
+      <% flash.each do |name, msg| %>
+        <p class="card-title"><%= msg %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>
