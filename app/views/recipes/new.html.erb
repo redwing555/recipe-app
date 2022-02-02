@@ -24,9 +24,9 @@
       <%= form.text_field :description, class: 'form-inputs w-full' %>
     </div>
 
-    <div class="form-switch my-2">
-      <%= form.label :public, { class: "form-check-label", for: "recipe_public" } %>
-      <%= form.check_box :public, { class: "form-check-input", } %>
+    <div class="flex flex-row mt-5">
+      <%= form.label :public, class: "form-check-label mr-5 text-lg" %>
+      <%= form.check_box :public,  class: "form-check-input text-lg " %>
     </div>
     
     <%= form.submit "Create Recipe", class: 'button my-5' %>
