@@ -24,10 +24,17 @@
         </div>
     </div>  
     <hr>
-    <div class="m-1 text-right">
-        <% if  current_user.id == @recipe.user_id %>
-            <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-primary btn-lg" %>
-        <% end %>
+    <div class="m-1 flex flex-row justify-content-between">
+        <div>
+            <% if  current_user.id == @recipe.user_id %>
+                <%= link_to "Generate Shopping List", general_shopping_list_path, class: "btn btn-primary btn-lg" %>
+            <% end %>
+        </div>
+        <div>
+            <% if  current_user.id == @recipe.user_id %>
+                <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-primary btn-lg" %>
+            <% end %>
+        </div>
     </div>
 </div>
 <div class=" p-3">

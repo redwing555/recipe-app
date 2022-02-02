@@ -29,6 +29,10 @@ class FoodController < ApplicationController
     redirect_to food_index_path
   end
 
+  def general_shopping_list
+    @foods = Food.where.missing(:recipe_foods)
+  end
+
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
   end
