@@ -10,7 +10,7 @@ class Ability
     return unless user.present?
 
     can :manage, Food, user: user
-    can :manage, Recipe, user:user
+    can :manage, Recipe, user: user
     can :create, :all
   end
 end
