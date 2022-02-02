@@ -14,25 +14,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="container">
-          <ul class="navbar-nav">
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= render partial: "partials/navbar" %>
-                <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-              </li>
-            <% end %>
-          </ul>
-      </div>
-    </nav>
+     <%= render partial: "partials/navbar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
