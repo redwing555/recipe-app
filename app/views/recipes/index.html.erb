@@ -10,17 +10,19 @@
 <div class="border-black flex flex-col w-full">
   <table>
     <tr>
-      <th>Recipe</th>
-      <th>Preparation time</th>
-      <th>Cooking time</th>
-      <th>Description</th>
+      <th class="p-3">Recipe</th>
+      <th class="p-3">Prep time</th>
+      <th class="p-3">Cook time</th>
+      <th class="p-3">Description</th>
     </tr>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.preparation_time %></td>
-        <td><%= recipe.cooking_time %></td>
-        <td><%= recipe.description %></td>
+        <td class="p-3">
+        <%= link_to recipe_path(recipe.id) do %><%= recipe.name %><% end %>
+        </td>
+        <td class="p-3"><%= recipe.preparation_time %></td>
+        <td class="p-3"><%= recipe.cooking_time %></td>
+        <td class="p-3"><%= recipe.description %></td>
         <td>
           <%= button_to 'Delete',
             recipe_path(recipe),
