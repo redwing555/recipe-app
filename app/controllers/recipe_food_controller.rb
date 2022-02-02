@@ -1,8 +1,15 @@
 class RecipeFoodController < ApplicationController
+
+    before_action :current_user_foods, only: %i[new create] 
     def new
         @recipe = Recipe.find(params[:recipe_id])
         @recipe_food = @recipe.recipe_foods.new
     end
+
+    def current_user_foods
+        @foods = current_user.foods.collect { |food| [food.name, food.id] }
+      end
+    
 
     def create
         @recipe_food= RecipeFood.new(recipe_food_params)
