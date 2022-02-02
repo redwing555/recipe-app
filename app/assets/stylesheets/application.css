@@ -41,6 +41,10 @@ body {
   width: 100%;
 }
 
+.w-half {
+  width: 60%;
+}
+
 .w-auto {
   width: auto;
 }
@@ -122,7 +126,7 @@ body {
   cursor: pointer;
 }
 
-.cursor-pointer a {
+a {
   text-decoration: none !important;
   color: rgb(36, 35, 35);
 }
