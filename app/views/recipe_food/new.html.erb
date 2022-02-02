@@ -1,0 +1,34 @@
+<div class="p-4">
+  <% if current_user.foods.any? %>
+    <%= form_with model: @recipe_food, url: recipe_food_index_path do |f| %>
+      <div class="my-2">
+        <%= f.label :food, class: "form-label" %>
+        <%= f.select :food_id, @foods, {}, { class: "form-select" } %>
+      </div>
+      <div class="my-2">
+        <%= f.label :quantity, class: "form-label" %>
+        <%= f.number_field :quantity, { class: "form-control", required: true, placeholder: "1", min: 1 } %>
+      </div>
+      <div class="my-2">
+        <%= f.hidden_field(:recipe_id) %>
+      </div>
+      <div class="d-flex flex-row-reverse justify-content-around">
+        <div class="mx-1">
+        
+          <%= f.submit "Submit Food", class: "btn btn-success" %>
+        </div>
+        <div>
+          <%= link_to "Create new Food", new_food_path,  class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="alert alert-info">
+      <p>You have no foods to add recipe to.</p>
+      <p>
+        <%= link_to "Add new Food", new_food_path %>
+        
+      </p>
+    </div>
+  <% end %>
+</div>
