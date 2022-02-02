@@ -1,29 +1,33 @@
 <div class="p-2 border mx-5">
     <div>
-            <div>  
+        <div>  
             <div class="flex flex-row justify-content-between">
-            <div><h1 class="p-2"> <%= @recipe.name %></h1> </div>
-                <div class="flex flex-row">
-                    <div class="mx-4"><i class="fas fa-clock"></i>Prep Time: <%= @recipe.preparation_time%> </div>
-                    <div class="mx-4"><i class="fas fa-hat-chef"></i> Cook Time: <%= @recipe.cooking_time%>  </div>     
-                    <div class="flex flex-row">
-                    <label class="form-check-label px-3" >Public</label>
+            <div>
+                <h1 class="p-2"> <%= @recipe.name %></h1>
+            </div>
+        <div class="flex flex-row">
+            <div class="mx-4">
+                <i class="fas fa-clock"></i>Prep Time: <%= @recipe.preparation_time%>
+            </div>
+            <div class="mx-4">
+                <i class="fas fa-hat-chef"></i>Cook Time: <%= @recipe.cooking_time%>
+            </div>     
+            <div class="flex flex-row">
+                <label class="form-check-label px-3" >Public</label>
                     <%= check_box_tag 'public', @recipe.public, @recipe.public, disabled: true, class: "form-check-input"%>
                 </div>          
-                </div > 
-             </div>
-             <div class="flex flex-row justify-content-between"> 
-                
-                <div class=" p-5 m-2 "><%= @recipe.description%> </div> 
-                
+            </div > 
+        </div>
+            <div class="flex flex-row justify-content-between"> 
+                <div class=" p-5 m-2 "><%= @recipe.description%></div> 
             </div>
         </div>
     </div>  
-         <hr>
+    <hr>
     <div class="m-1 text-right">
         <% if  current_user.id == @recipe.user_id %>
             <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-primary btn-lg" %>
-          <% end %>
+        <% end %>
     </div>
 </div>
 <div class=" p-3">
@@ -36,14 +40,13 @@
             </tr>
         </thead>
         <tbody>
-                <% @food_with_recipes.each do |recipe_food| %>
-                        <tr>
-                            <td><%= recipe_food.food.name %></td>
-                            <td><%= pluralize(recipe_food.quantity, recipe_food.food.measurement_unit) %></th>
-                            <td>€<%= recipe_food.food.price %></td>
-                        </tr>
-                        <% end %>  
+            <% @food_with_recipes.each do |recipe_food| %>
+                <tr>
+                    <td><%= recipe_food.food.name %></td>
+                    <td><%= pluralize(recipe_food.quantity, recipe_food.food.measurement_unit) %></th>
+                    <td>€<%= recipe_food.food.price %></td>
+                </tr>
+            <% end %>  
         </tbody>
     </table> 
-
 </div>

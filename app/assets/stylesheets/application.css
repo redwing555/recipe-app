@@ -122,6 +122,11 @@ body {
   cursor: pointer;
 }
 
+.cursor-pointer a {
+  text-decoration: none !important;
+  color: rgb(36, 35, 35);
+}
+
 .hover-text-gray:hover {
   color: rgb(144, 144, 144);
 }
