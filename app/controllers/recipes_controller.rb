@@ -9,6 +9,18 @@ class RecipesController < ApplicationController
         @recipes = current_user.recipes.all
     end
 
+    def create
+        @recipe = Recipe.new(recipe_params)
+        current_user.recipes << @recipe
+        if @recipe.save
+          flash[:notice] = 'Recipe added successfully'
+          redirect_to recipes_path
+        else
+          flash[:alert] = 'Recipe not added! please try again'
+          render :new
+        end
+      end
+
     def show
         @recipe = Recipe.find(params[:id])
         @recipe_food = @recipe.recipe_food.includes(:food)
