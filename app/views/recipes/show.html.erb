@@ -8,13 +8,10 @@
                     <%= check_box_tag 'public', @recipe.public, @recipe.public, disabled: true, class: "form-check-input text-lg"%>
                 </div>
              </div>
-            <div class="info-container">
+            <div class="flex flex-col mt-5">
                 <div>Prepartion Time: <%= @recipe.preparation_time%> </div>
                 <div>Cooking Time: <%= @recipe.cooking_time%> </div>
-                <div class="mt-5">Descirption: <%= @recipe.description%> </div>
-
-                
-                                    
+                <div class="mt-5"><%= @recipe.description%> </div>               
             </div >  
         </div>
     </div>  
