@@ -18,6 +18,14 @@
       <p class="text-lg">Price:</p>
       <%= form.number_field :price, class: 'form-control my-3' %>
     </div>
+    <div>
+      <p class="text-lg">Select Recipe</p>
+      <%= form.collection_select :recipe_id,
+        @recipes, :id, :name,
+        include_blank: true,
+        class: 'form-control my-3' 
+      %>
+    </div>
 
     <%= form.submit "Create Food", class: 'button my-5 btn btn-primary btn-lg' %>
   <% end %>

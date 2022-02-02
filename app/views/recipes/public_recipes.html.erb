@@ -14,8 +14,10 @@
       <p class="p-2"> By: <%= recipe.user.name %> </p>
     </div>
     <div>
-      <p class="p-2"> Total food items: 4 </p>
-      <p class="p-2"> Total price: $120 </p>
+      <p class="p-2"> Total food items: <%= recipe.recipe_foods.count %> </p>
+      <p class="p-2">
+        Total price: $<%= recipe.recipe_foods.includes(:food).sum(:price).truncate() %>
+      </p>
     </div>
   </div>
 <% end %>

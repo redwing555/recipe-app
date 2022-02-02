@@ -43,7 +43,7 @@
             <% @food_with_recipes.each do |recipe_food| %>
                 <tr>
                     <td><%= recipe_food.food.name %></td>
-                    <td><%= pluralize(recipe_food.quantity, recipe_food.food.measurement_unit) %></th>
+                    <td><%= recipe_food.quantity %></th>
                     <td>€<%= recipe_food.food.price %></td>
                 </tr>
             <% end %>  
