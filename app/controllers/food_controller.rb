@@ -6,6 +6,7 @@ class FoodController < ApplicationController
   def new
     @food = Food.new
     @current_user = current_user
+    @recipes = Recipe.all
   end
 
   def create
@@ -21,12 +22,12 @@ class FoodController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    @food.destroy!
+    @food.destroy
     flash[:success] = 'Food deleted'
     redirect_to food_index_path
   end
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price)
+    params.require(:food).permit(:name, :measurement_unit, :price, :recipe_id)
   end
 end
