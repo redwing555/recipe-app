@@ -1,0 +1,21 @@
+<div class="p-2 border mx-5">
+    <div>
+            <div>  
+            <div class="flex flex-row justify-content-between">
+            <div><h1 class="py-3"> <%= @recipe.name %></h1> </div>
+            <div class="flex flex-row">
+                    <label class="form-check-label mr-5 text-lg" >Public</label>
+                    <%= check_box_tag 'public', @recipe.public, @recipe.public, disabled: true, class: "form-check-input text-lg"%>
+                </div>
+             </div>
+            <div class="info-container">
+                <div>Prepartion Time: <%= @recipe.preparation_time%> </div>
+                <div>Cooking Time: <%= @recipe.cooking_time%> </div>
+                <div class="mt-5">Descirption: <%= @recipe.description%> </div>
+
+                
+                                    
+            </div >  
+        </div>
+    </div>  
+</div>
