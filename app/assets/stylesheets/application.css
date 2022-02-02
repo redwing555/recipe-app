@@ -108,11 +108,6 @@ body {
 
 /* End of custom classes */
 
-.container {
-  height: auto;
-  padding: 10px 20%;
-}
-
 .horizontal-panel {
   width: 80%;
   height: auto;
@@ -121,6 +116,14 @@ body {
 
 .card-title {
   font-size: 30px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover-text-gray:hover {
+  color: rgb(144, 144, 144);
 }
 
 .card-paragraph {
