@@ -41,5 +41,5 @@ RSpec.feature 'Recipes Index Page', type: :feature do
             expect(page).to have_content 'lorem upsum3'
             expect(page).to have_button 'Remove'
         end
-       end
+    end
 end
