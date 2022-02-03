@@ -1,13 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Ruby on Rails Blog App
+# Ruby on Rails Recipe App
 
-This is the first project I have built using Ruby on Rails.
-
-It's meant to be a simple blog app that I can use to learn new technologies.
+The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app  allow you to make them public so anyone can access them.
 ## Built With
 
 - Ruby on Rails
+- RSpec
+- Capybara
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repository
 2. Run the `bundle install` command
 3. Run `rails s` to start the server
-4. Visit http://localhost:3000/ in your browser to see the blog posts
+4. Visit http://localhost:3000/ in your browser to sign up .
 
 ### Prerequisites
 
@@ -30,7 +30,6 @@ To get a local copy up and running follow these simple example steps.
 
 - Second, you need to create the database for this app. In order to do this, you can do `rails db:create`, then do `rails db:migrate`.
 
-- Third, if you want to add your own comments or posts, you can delete the ones that are done by default on `post.rb` and `comment.rb` and create your own.
 ### Run tests
 
 - To run the test all you need to do is do `cd` to the correct folder and run `rspec`, or you can do `rspec spec/` to run all the tests.
