@@ -4,14 +4,12 @@ RSpec.feature 'Recipes Index Page', type: :feature do
   before(:each) do
     visit new_user_session_path
     @user1 = User.new(name: "testUser", email: "test@gmail.com", confirmed_at: Time.now, created_at: Time.now, password: 'test11')
-
-    recipe1 = Recipe.create!(name: 'Recipe1', preparation_time: 1, cooking_time: 2, description: 'lorem upsum1', user: @user1, user_id: @user1.id)
-    recipe2 = Recipe.create!(name: 'Recipe2', preparation_time: 1, cooking_time: 2, description: 'lorem upsum2', user: @user1, user_id: @user1.id)
-    recipe3 = Recipe.create!(name: 'Recipe3', preparation_time: 1, cooking_time: 2, description: 'lorem upsum3', user: @user1, user_id: @user1.id)
+    Recipe.create!(name: 'Recipe1', preparation_time: 1, cooking_time: 2, description: 'lorem upsum1', user: @user1)
+    Recipe.create!(name: 'Recipe2', preparation_time: 1, cooking_time: 2, description: 'lorem upsum2', user: @user1)
+    Recipe.create!(name: 'Recipe3', preparation_time: 1, cooking_time: 2, description: 'lorem upsum3', user: @user1)
     fill_in 'Email', with: 'test@gmail.com'
     fill_in 'Password', with: 'test11'
     click_button 'Log in'
-
     visit recipes_path
   end
 
@@ -33,10 +31,6 @@ RSpec.feature 'Recipes Index Page', type: :feature do
 
       expect(page).to have_content 'Recipe2'
       expect(page).to have_content 'lorem upsum2'
-      expect(page).to have_button 'Remove'
-
-      expect(page).to have_content 'Recipe3'
-      expect(page).to have_content 'lorem upsum3'
       expect(page).to have_button 'Remove'
     end
   end

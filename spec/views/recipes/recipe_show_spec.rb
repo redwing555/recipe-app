@@ -5,7 +5,7 @@ RSpec.feature 'Recipes Index Page', type: :feature do
     visit new_user_session_path
     @user1 = User.new(name: "testUser", email: "test@gmail.com", confirmed_at: Time.now, created_at: Time.now, password: 'test11')
 
-    recipe1 = Recipe.create!(name: 'Recipe1', preparation_time: 1, cooking_time: 2, description: 'lorem upsum1', user: @user1, user_id: @user1.id, public: true)
+    Recipe.create!(name: 'Recipe1', preparation_time: 1, cooking_time: 2, description: 'lorem upsum1', user: @user1, public: true)
     food1 = Food.create!(name: 'Chocolate', measurement_unit: "g", price: 10, user_id: @user1.id)
     @recipe_food1 = RecipeFood.create!(quantity: "1", recipe: recipe1, food: food1)
 
