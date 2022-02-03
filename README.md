@@ -1,56 +1,53 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Ruby on Rails Blog App
 
-> Description the project.
+This is the first project I have built using Ruby on Rails.
 
-
+It's meant to be a simple blog app that I can use to learn new technologies.
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby on Rails
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
 
+1. Clone the repository
+2. Run the `bundle install` command
+3. Run `rails s` to start the server
+4. Visit http://localhost:3000/ in your browser to see the blog posts
+
 ### Prerequisites
 
-### Setup
+- You need to have Ruby installed on your machine.
 
-### Install
 
-### Usage
+### Installation
 
+- First, you will need to clone this repository into your local machine.
+
+- Second, you need to create the database for this app. In order to do this, you can do `rails db:create`, then do `rails db:migrate`.
+
+- Third, if you want to add your own comments or posts, you can delete the ones that are done by default on `post.rb` and `comment.rb` and create your own.
 ### Run tests
 
-### Deployment
-
+- To run the test all you need to do is do `cd` to the correct folder and run `rspec`, or you can do `rspec spec/` to run all the tests.
 
 
 ## Authors
+👤 **Muhammad Sesay**
 
-👤 **Author1**
+- GitHub: [@mmsesay](https://github.com/mmsesay)
+- Twitter: [@DeeMaejor](https://twitter.com/DeeMaejor)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/muhammad-m-sesay)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Author2**
+👤 **Houssam Hichami**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@redwing555](https://github.com/redwing555)
+- LinkedIn: [Houssam Hichami](https://linkedin.com/in/houssam-hichami)
 
 ## 🤝 Contributing
 
