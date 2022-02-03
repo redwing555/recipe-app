@@ -1,0 +1,24 @@
+<div class="flex space-between mx-5">
+  <h3 class="card-title hover-text-gray cursor-pointer">
+    List of Recipes
+  </h3>
+  <h3 class="card-title hover-text-gray cursor-pointer">
+    <%= link_to "View all recipes", recipes_path %>
+  </h3>
+</div>
+
+<% @recipes.each do |recipe| %>
+  <div class="p-4 border mx-5 flex justify-content-between">
+    <div>
+      <h1 class="p-2"><%= link_to "#{recipe.name}", recipe_path(recipe) %></h1>
+      <p class="p-2"> By: <%= recipe.user.name %> </p>
+    </div>
+    <div>
+      <p class="p-2"> Total food items: <%= recipe.recipe_foods.count %> </p>
+      <p class="p-2">
+        Total price: $<%= recipe.recipe_foods.includes(:food).sum(:price).truncate() %>
+      </p>
+    </div>
+  </div>
+<% end %>
+

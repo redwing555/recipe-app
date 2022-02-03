@@ -3,21 +3,30 @@
     <h3 class="card-title">Create new food</h3>
   </div>
 
-  <%= form_with  class: 'form border-black flex flex-col w-full',
+  <%= form_with  class: 'card p-4 border mx-5 flex flex-col w-full',
     model: @food,
     url: food_index_path(@current_user) do |form| %>
     <div>
       <p class="text-lg">Name:</p>
-      <%= form.text_field :name, class: 'form-inputs w-full' %>
+      <%= form.text_field :name, class: 'form-control my-3' %>
     </div>
     <div>
       <p class="text-lg">Measurement Unit:</p>
-      <%= form.text_field :measurement_unit, class: 'form-inputs w-full' %>
+      <%= form.text_field :measurement_unit, class: 'form-control my-3' %>
     </div>
     <div>
       <p class="text-lg">Price:</p>
-      <%= form.number_field :price, class: 'form-inputs w-full' %>
+      <%= form.number_field :price, class: 'form-control my-3' %>
     </div>
-    <%= form.submit "Create Food", class: 'button my-5' %>
+    <div>
+      <p class="text-lg">Select Recipe</p>
+      <%= form.collection_select :recipe_id,
+        @recipes, :id, :name,
+        include_blank: true,
+        class: 'form-control my-3' 
+      %>
+    </div>
+
+    <%= form.submit "Create Food", class: 'button my-5 btn btn-primary btn-lg' %>
   <% end %>
 </div>
