@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get '/general_shopping_list', to: 'food#general_shopping_list'
 
  
-  root "food#index"
+  root "recipes#public_recipes"
 
 end
