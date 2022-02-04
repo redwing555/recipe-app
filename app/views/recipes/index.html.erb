@@ -1,0 +1,26 @@
+<div class="flex space-between mx-5">
+  <h3 class="card-title hover-text-gray cursor-pointer">
+    List of Recipes
+  </h3>
+  <h3 class="card-title hover-text-gray cursor-pointer">
+    <%= link_to "View public recipes", public_recipes_path %>
+  </h3>
+</div>
+
+<% @recipes.each do |recipe| %>
+  <div class="p-2 border mx-5 flex justify-content-between">
+    <div class="flex flex-col justify-content-between">
+      <h1 class="p-2 title">
+        <%= link_to "#{recipe.name}", recipe_path(recipe) %>
+      </h1>
+      <div class="m-1 text-right">
+        <% if current_user.id == recipe.user_id %>
+          <%= button_to "Remove", recipe_path(recipe), method: :delete, class: "btn btn-primary btn-md" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="w-half">
+      <p class="p-2"> <%= recipe.description %> </p>
+    </div>
+  </div>
+<% end %>

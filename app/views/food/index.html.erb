@@ -1,0 +1,18 @@
+
+<% if user_signed_in? %>
+    <% if @foods.empty? %>
+      <div class="alert alert-info">
+        <p>Add food to your list</p>
+      </div>
+    <% else %>
+      <%= render 'food_card', foods: @foods %>
+    <% end %>
+<% else %>
+    <% if @foods.empty? %>
+      <div class="alert alert-info">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %> 
+      <% else %>
+        <%= render 'food_card', foods: @foods %>
+      </div>
+    <% end %>
+<% end %>

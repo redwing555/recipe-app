@@ -1,0 +1,67 @@
+<div class="p-2 border mx-5">
+    <div>
+        <div>  
+            <div class="flex flex-row justify-content-between">
+            <div>
+                <h1 class="p-2"> <%= @recipe.name %></h1>
+            </div>
+        <div class="flex flex-row">
+            <div class="mx-4">
+                <i class="fas fa-clock"></i>Prep Time: <%= @recipe.preparation_time%>
+            </div>
+            <div class="mx-4">
+                <i class="fas fa-hat-chef"></i>Cook Time: <%= @recipe.cooking_time%>
+            </div>     
+            <div class="flex flex-row">
+                <label class="form-check-label px-3" >Public</label>
+                    <%= check_box_tag 'public', @recipe.public, @recipe.public, disabled: true, class: "form-check-input"%>
+                </div>          
+            </div > 
+        </div>
+            <div class="flex flex-row justify-content-between"> 
+                <div class=" p-5 m-2 "><%= @recipe.description%></div> 
+            </div>
+        </div>
+    </div>  
+    <hr>
+    <div class="m-1 flex flex-row justify-content-between">
+        <div>
+        <% if user_signed_in? %>
+                <% if  current_user.id == @recipe.user_id %>
+                    <%= link_to "Generate Shopping List", general_shopping_list_path, class: "btn btn-primary btn-lg" %>
+                <% else %>
+                    <%= button_to "Generate Shopping List", {}, class: "btn btn-primary", disabled: true %>
+                <% end %>
+       <% end %>
+        </div>
+        <div>
+        <% if user_signed_in? %>
+                <% if  current_user.id == @recipe.user_id %>
+                         <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-primary btn-lg" %>
+                <% else %>
+                    <%= button_to "Add Ingredient", {}, class: "btn btn-primary", disabled: true %>
+                <% end %>
+       <% end %>
+        </div>
+    </div>
+</div>
+<div class=" p-3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @food_with_recipes.each do |recipe_food| %>
+                <tr>
+                    <td><%= recipe_food.food.name %></td>
+                    <td><%= recipe_food.quantity %></th>
+                    <td>€<%= recipe_food.food.price %></td>
+                </tr>
+            <% end %>  
+        </tbody>
+    </table> 
+</div>

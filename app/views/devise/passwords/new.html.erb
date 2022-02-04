@@ -1,0 +1,18 @@
+<h2 class="mt-5">Forgot your password?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, data: { turbo: false }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+   <div class="field">
+    <%= f.label :email, for:"exampleInputEmail1", class:"mb-3" %><br />
+   
+    <%= f.email_field :email, type:"email", class:"form-control", id:"exampleInputEmail1", ariadescribedby:"emailHelp", placeholder:"Enter email", autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions", class:"btn btn-primary mt-5 mb-5" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
